@@ -1,5 +1,5 @@
 name: Kubescape
-on:[push]
+on: [push]
 jobs:
     nsa-security-check:
         runs-on: ubuntu-latest
