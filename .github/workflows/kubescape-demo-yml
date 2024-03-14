@@ -2,8 +2,6 @@ name: Kubescape
 on :
     push:
         branches: [ main ] 
-    pull_request:
-        branches: [ main ]
 jobs:
     nsa-security-check:
         runs-on: ubuntu-latest
