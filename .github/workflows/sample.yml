@@ -1,34 +1,74 @@
-name: My First GitHub Actions
+# name: My First GitHub Actions
 
-on: [push]
+# on: [push]
 
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     env:
+#         my_name : "Gaurav"
+#     strategy:
+#       matrix:
+#         python-version: [3.8, 3.9]
+
+#     steps:
+
+#     - name: my name
+#       run : echo ${{ env.my_name}}
+      
+#     - uses: actions/checkout@v3
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: ${{ matrix.python-version }}
+
+#     - name: Install dependencies
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install pytest
+
+#     - name: Run tests
+#       run: |
+#         cd src
+#         python -m pytest addition.py
+
+name: demo worflow
+ 
+on:
+  push:
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-        my_name : "Gaurav"
+ 
     strategy:
-      matrix:
-        python-version: [3.8, 3.9]
-
+     matrix:
+      python-version: ["3.8","3.9","3.12"]
+     
+ 
+    env:
+      first_name : "Gaurav"
+ 
     steps:
-
-    - name: my name
-      run : echo ${{ env.my_name}}
-      
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-
-    - name: Run tests
-      run: |
-        cd src
-        python -m pytest addition.py
+      - name: my name
+        run: echo ${{ env.first_name}}
+ 
+      - name: checkout repo content
+        uses: actions/checkout@v4 # checkout the repository content
+ 
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }} # install the python version needed
+ 
+      - name: execute py script # run main.py
+        run: python addition.py
+ 
+      - name: Run a one-line script
+        run: echo Hello, World!
+ 
+      - name: Run multi-line script
+        run: |
+             echo This is my work.
+             echo Submitted to you.  
