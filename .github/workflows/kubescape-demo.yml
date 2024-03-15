@@ -12,4 +12,4 @@ jobs:
           export PATH=$PATH:/path/to/kubescape/directory
       - name: Scan YAML files
         run: |
-          kubescape scan framework nsa *…yaml
+          kubescape scan framework nsa *.yaml
