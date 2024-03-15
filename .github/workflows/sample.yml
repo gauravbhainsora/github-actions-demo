@@ -33,7 +33,7 @@
 #         cd src
 #         python -m pytest addition.py
 
-name: demo worflow
+name: demo workflow
  
 on:
   push:
